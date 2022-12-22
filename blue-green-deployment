@@ -19,7 +19,6 @@ spec:
           httpGet:
             path: /
             port: 8080
-Prepare the public service endpoint, which initially routes to one of the backend environments, say TARGET_ROLE=blue.
 kind: Service
 apiVersion: v1
 metadata:
@@ -36,7 +35,6 @@ spec:
   ports:
     - port: 80
       targetPort: 8080
-Optionally, prepare a test endpoint so that we can visit the backend environments for testing. They are similar to the public service endpoint, but they are intended to be accessed internally by the dev/ops team only.
 kind: Service
 apiVersion: v1
 metadata:
